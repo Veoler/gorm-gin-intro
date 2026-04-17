@@ -24,17 +24,39 @@ func main() {
 	r := gin.Default()
 
 	r.GET("/ping", func(ctx *gin.Context){
-		ctx.JSON(http.StatusOK, gin.H{"message": "pong",})
+		ctx.JSON(http.StatusOK, gin.H{
+			"message": "pong"})
 	})
-	r.POST("/students", func(c *gin.Context){gormginintro.CreateStudentHand(c, db)})
-	r.GET("/students/:id", func(c *gin.Context){gormginintro.GetStudentByIDHand(c, db)})
-	r.GET("/students/", func(c *gin.Context){gormginintro.GetStudentsHand(c, db)})
-	r.DELETE("students/:id", func (c *gin.Context){gormginintro.DeleteStudentHand(c, db)})
-	r.PATCH("/students/:id", func (c *gin.Context){gormginintro.UpdateStudentHand(c, db)})
-	r.POST("/groups", func(c *gin.Context){gormginintro.CreateGroupHand(c, db)})
-	r.GET("/groups", func(c *gin.Context){gormginintro.GetGroupsHand(c, db)})
-	r.GET("/groups/:id", func(c *gin.Context){gormginintro.GetGroupByIDHand(c, db)})
-	r.DELETE("/groups/:id", func(c *gin.Context){gormginintro.DeleteGroupHand(c, db)})
-	r.PATCH("/groups/:id", func (c *gin.Context){gormginintro.UpdateGroupHand(c, db)})
+	r.POST("/students", func(c *gin.Context){
+		gormginintro.CreateStudentHand(c, db)
+	})
+	r.GET("/students/:id", func(c *gin.Context){
+		gormginintro.GetStudentByIDHand(c, db)
+	})
+	r.GET("/students/", func(c *gin.Context){
+		gormginintro.GetStudentsHand(c, db)
+	})
+	r.DELETE("students/:id", func (c *gin.Context){
+		gormginintro.DeleteStudentHand(c, db)
+	})
+	r.PATCH("/students/:id", func (c *gin.Context){
+		gormginintro.UpdateStudentHand(c, db)
+	})
+	r.POST("/groups", func(c *gin.Context){
+		gormginintro.CreateGroupHand(c, db)
+	})
+	r.GET("/groups", func(c *gin.Context){
+		gormginintro.GetGroupsHand(c, db)
+	})
+	r.GET("/groups/:id", func(c *gin.Context){
+		gormginintro.GetGroupByIDHand(c, db)
+	})
+	r.DELETE("/groups/:id", func(c *gin.Context){
+		gormginintro.DeleteGroupHand(c, db)
+	})
+	r.PATCH("/groups/:id", func (c *gin.Context){
+		gormginintro.UpdateGroupHand(c, db)
+	})
+	
 	r.Run()
 }
